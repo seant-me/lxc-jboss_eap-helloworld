@@ -21,6 +21,8 @@ To install:
    <code>podman run -d --rm -p 9990:9990 -p 9991:8080 eap_helloworld</code>
 8. open firewall ports<br/>
    <code>firewall-cmd --add-port=9990/tcp --add-port=9991/tcp</code>
-9. with your browser (firefox, chrome, etc.), goto<br/>
+   
+To access demo:
+1. With your browser (firefox, chrome, etc.), goto<br/>
    a. Management Console - http://localhost:9990/<br/>
    b. HelloWorld Demo    - http://localhost:9991/<br/>
