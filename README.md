@@ -5,7 +5,7 @@ To install:
 
 1. download docker files to a directory (e.g., demo)
 2. create a directory 'files' inside of demo (demo/files) <br/>
-   <code>mkdir demo</code>
+   <code>mkdir -p demo/files</code>
 3. download required zips <br/>
    a. JBoss EAP 7.2.0 from Red Hat \*Active Red Hat Subscription Reuquired\* <br/>
       Download zip from https://access.redhat.com/jbossnetwork/restricted/listSoftware.html?downloadType=distributions&product=appplatform&version=7.2 <br/>
