@@ -3,7 +3,7 @@ Containerized EAP with helloworld deploy
 
 To install:
 
-1. download docker files to a directory (e.g., demo)
+1. download Dockerfiles to a directory (e.g., demo)
 2. create a directory 'files' inside of demo (demo/files) <br/>
    <code>mkdir -p demo/files</code>
 3. download required zips <br/>
