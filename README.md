@@ -16,7 +16,7 @@ To install:
 4. Place them all in demo/files
 5. Go to demo directory
 6. Build the image and save to built in image registry<br/>
-   <code>podman build -t eap_helloworld .</code>
+   <code>podman build -t eap_helloworld -f Dockerfile_RHEL</code>
 7. Deploy image<br/>
    <code>podman run -d --rm -p 9990:9990 -p 9991:8080 eap_helloworld</code>
 8. open firewall ports<br/>
