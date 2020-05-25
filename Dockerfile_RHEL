@@ -1,0 +1,16 @@
+FROM rhel7:7.8
+LABEL maintainer="seant@redhat.com"
+ARG admin_user=redhat
+ARG admin_pass=password0
+                                                                                # copy the jboss eap install zip and helloworld zip in to the container image
+COPY files/jboss-eap-7.2.0.zip files/7.2.0.GA.zip files/apache-maven-3.6.3-bin.zip /tmp                        
+RUN yum-config-manager --enable rhel-7-server-optional-rpms 
+RUN yum -y install unzip java-1.8.0-openjdk-headless maven && yum clean all && `# install dependency packages` \
+    unzip /tmp/jboss-eap-7.2.0.zip -d / && rm -rf /tmp/jboss-eap-7.2.0.zip &&  `# extract jboss zip and delete zip` \
+    unzip /tmp/apache-maven-3.6.3-bin.zip -d / && rm -rf /tmp/apache-maven-3.6.3-bin.zip &&  `# extract jboss zip and delete zip` \
+    unzip /tmp/7.2.0.GA.zip -d / && rm -rf /tmp/7.2.0.GA.zip &&                `# extract quickstarts zip and delete zip` \
+    cd /jboss-eap-quickstarts-7.2.0.GA/helloworld && /apache-maven-3.6.3/bin/mvn clean package &&      `# build helloworld and create helloworld jar` \
+    cp /jboss-eap-quickstarts-7.2.0.GA/helloworld/target/helloworld.war /jboss-eap-7.2/standalone/deployments/ && `# deploy helloworld jar` \
+    /jboss-eap-7.2/bin/add-user.sh -u $admin_user -p $admin_pass               `# add a user for the console`
+CMD ["/jboss-eap-7.2/bin/standalone.sh"]                                        # start eap server
+EXPOSE 9990 8080
