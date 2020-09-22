@@ -1,4 +1,4 @@
-FROM rhel7:7.8
+FROM ubi7/ubi
 LABEL maintainer="seant@redhat.com"
 ARG admin_user=redhat
 ARG admin_pass=password0
